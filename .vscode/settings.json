@@ -1,5 +1,12 @@
 {
     "cSpell.ignoreWords": [
-        "mysql"
+        "mysql",
+        "mydatabase",
+        "`mydatabase`",
+        "mydb",
+        "mycursor",
+        "mysqlcreate",
+        "executemany",
+        "onerow"
     ]
 }
