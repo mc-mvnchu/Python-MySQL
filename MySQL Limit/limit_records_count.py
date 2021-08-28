@@ -9,10 +9,9 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
-sql = "INSERT INTO customers (name, address) VALUES (%s, %s)"
-val = ("Michelle", "Blue Village")
-mycursor.execute(sql, val)
+mycursor.execute("SELECT * FROM customers LIMIT 5")
 
-mydb.commit()
+myresult = mycursor.fetchall()
 
-print("1 record inserted, ID:", mycursor.lastrowid)
+for x in myresult:
+    print(x)

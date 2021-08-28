@@ -9,10 +9,11 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
-sql = "INSERT INTO customers (name, address) VALUES (%s, %s)"
-val = ("Michelle", "Blue Village")
-mycursor.execute(sql, val)
+mycursor.execute("SELECT * FROM customers")
 
-mydb.commit()
+myresult = mycursor.fetchone()
 
-print("1 record inserted, ID:", mycursor.lastrowid)
+#Fetching the First 5
+#myresult = mycursor.fetchmany(size=5)
+
+print(myresult)

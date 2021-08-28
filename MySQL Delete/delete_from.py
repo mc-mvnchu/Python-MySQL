@@ -9,10 +9,10 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
-sql = "INSERT INTO customers (name, address) VALUES (%s, %s)"
-val = ("Michelle", "Blue Village")
-mycursor.execute(sql, val)
+sql = "DELETE FROM customers WHERE address = 'Mountain 21'"
+
+mycursor.execute(sql)
 
 mydb.commit()
 
-print("1 record inserted, ID:", mycursor.lastrowid)
+print(mycursor.rowcount, "record(s) deleted")

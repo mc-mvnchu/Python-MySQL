@@ -9,10 +9,11 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
-sql = "INSERT INTO customers (name, address) VALUES (%s, %s)"
-val = ("Michelle", "Blue Village")
-mycursor.execute(sql, val)
+sql = "SELECT * FROM customers WHERE address LIKE '%way%'"
 
-mydb.commit()
+mycursor.execute(sql)
 
-print("1 record inserted, ID:", mycursor.lastrowid)
+myresult = mycursor.fetchall()
+
+for x in myresult:
+    print(x)

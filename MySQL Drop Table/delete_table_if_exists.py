@@ -9,10 +9,8 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
-sql = "INSERT INTO customers (name, address) VALUES (%s, %s)"
-val = ("Michelle", "Blue Village")
-mycursor.execute(sql, val)
+sql = "DROP TABLE IF EXISTS customers"
 
-mydb.commit()
+mycursor.execute(sql)
 
-print("1 record inserted, ID:", mycursor.lastrowid)
+#If the page is executed with no error(s), you have successfully deleted the "customers" table.

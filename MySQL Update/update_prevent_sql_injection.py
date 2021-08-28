@@ -9,10 +9,11 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
-sql = "INSERT INTO customers (name, address) VALUES (%s, %s)"
-val = ("Michelle", "Blue Village")
+sql = "UPDATE customers SET address = %s WHERE address = %s"
+val = ("Valley 345", "Canyon 123")
+
 mycursor.execute(sql, val)
 
 mydb.commit()
 
-print("1 record inserted, ID:", mycursor.lastrowid)
+print(mycursor.rowcount, "record(s) affected")
